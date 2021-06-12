@@ -1,0 +1,1 @@
+ED Exploration Helper is a small utility for Elite Dangerous which checks if a system is in the EDSM database every time a commander selects a target.
