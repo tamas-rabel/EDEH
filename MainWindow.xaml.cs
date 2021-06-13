@@ -111,9 +111,14 @@ namespace explore
 
         void initialize(string path)
         {
+            // Only parse logs from the last 7 days
+            DateTime cutoff = DateTime.Now.AddDays(-7);
+
             string[] files = Directory.GetFiles(path, "Journal.*.log");
             foreach (string f in files)
             {
+                if (File.GetLastWriteTime(f) < cutoff) continue;
+
                 parse_log(f, true);
             }
 
